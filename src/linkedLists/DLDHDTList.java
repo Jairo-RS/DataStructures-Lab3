@@ -7,7 +7,10 @@ public class DLDHDTList<E> extends AbstractDLList<E> {
 	private int length; 
 	
 	public DLDHDTList() { 
-		// ADD CODE HERE to generate empty linked list of this type 
+		// ADD CODE HERE to generate empty linked list of this type
+		header = new DNode<E>(null, null, trailer);
+		trailer = new DNode<E>(null, header, null);
+		length = 0;
 	}
 	
 	public void addFirstNode(Node<E> nuevo) {
@@ -36,7 +39,16 @@ public class DLDHDTList<E> extends AbstractDLList<E> {
 	}
 
 	public void addNodeBefore(Node<E> target, Node<E> nuevo) {
-		// ADD CODE HERE
+		//Testing: NOT FINISHED
+		DNode<E> dnuevo = (DNode<E>) nuevo;
+		DNode<E> nAfter = (DNode<E>) target;
+		DNode<E> nBefore  = nAfter.getPrev();
+		nBefore.setPrev(dnuevo);
+		nAfter.setNext(dnuevo);
+		dnuevo.setPrev(nBefore);
+		dnuevo.setNext(nAfter);
+		length++;
+		
 	}
 
 	public Node<E> createNewNode() {
