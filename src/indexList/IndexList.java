@@ -68,4 +68,9 @@ public interface IndexList<E> {
      */
     public E set(int i, E e)
     throws IndexOutOfBoundsException;
+    
+    
+    Object[] toArray();
+    
+	<T1> T1[] toArray(T1[] array);
 }

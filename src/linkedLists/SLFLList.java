@@ -102,7 +102,9 @@ public class SLFLList<E> extends SLList<E>
 		// Pre: target is a node in the list; hence, the list is not empty
 		
 		if (target == first) 
-			first = first.getNext(); 
+			first = first.getNext();
+		else if(target == last) 
+			last = (SNode<E>)(this.getNodeBefore(last)); 
 		else { 
 			SNode<E> prevNode = (SNode<E>) this.getNodeBefore(target); 
 			prevNode.setNext(((SNode<E>) target).getNext()); 
